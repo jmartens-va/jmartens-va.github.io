@@ -1,61 +1,46 @@
-# Styleguide [![Build Status](https://travis-ci.org/hugeinc/styleguide.svg?branch=master)](https://travis-ci.org/hugeinc/styleguide)
-#### A tool to make creating and maintaining styleguides easy.
-#####v2.0.8
+# Welcome to the Mailchimp Content Style Guide
 
-For downloads, how to get started and detailed documentation please refer to the [Styleguide Website](http://hugeinc.github.io/styleguide/)
+This style guide is primarily for Mailchimp employees, but we hope it’s helpful to other organizations as well.
 
-#### Thanks to
-- [Node.js](http://nodejs.org)
-- [Harp.js](http://harpjs.com)
-- [Node Livereload](https://www.npmjs.com/package/livereload)
-- [Node Watch](https://www.npmjs.com/package/watch)
+If you're looking for the Mailchimp Content Style Guide website, visit [styleguide.mailchimp.com](http://styleguide.mailchimp.com).
 
-### Known issues
-1 - You should allow unregistered applications to run in order to use the Start.app file. You can do so in Settings > Security & Privacy
+Whether or not you work at Mailchimp, we welcome your thoughts and suggestions. To learn more about sending us feedback or adapting this guide to create your own, see the Contributing file.
 
-2 - The compiled offline version have a smaller issue on Chrome. Chrome have a security policy of not allowing communication with iframes under file:// protocol, so any interaction that needs such communication will be removed (basically the sidebar menu). This is only for the offline compiled version.
+## Using the Guide
 
-3 - If you are a Mac user and after running the Start.app you have this error:
+We've written a [blog post](http://devs.mailchimp.com/blog/how-we-built-the-mailchimp-content-style-guide/) and set up an [example Middleman project](https://github.com/mailchimp/middleman-with-md-submodule-example).
 
+## Creating a New File
+
+This guide is a collection of Markdown files. This is a plaintext format that easily converts to HTML. Read more about it [here](http://daringfireball.net/projects/markdown/). Be sure you name your files without spaces with either an `.md` or `.markdown` extension.
+
+The files in this guide are prefixed with a double digit to set order. Make sure your file starts with a number that will place your new content in the desired position (eg: `04-`) and change the prefixes of the other files to reflect this change in order.
+
+## Markdown
+
+Markdown is handy because you can write your content without HTML tags. Here are some tips to help you control the layout of your text.
+
+### Line Breaks
+
+If you want a line to break to the next line but don’t want to start a new paragraph, end the line with two spaces. This will render a `<br>` tag.
+
+### Widows
+
+The best way to prevent widows is to type `&nbsp;` in the space between the last two words in a title or paragraph.
+
+### Tables
+
+Tables can be written in Markdown by following this general style:
+
+```markdown
+| header 1 | header 2 |
+| -------- | -------- |
+| cell 1   | cell 2   |
+| cell 3   | cell 4   |
 ```
-npm ERR! Please try running this command again as root/Administrator.
-```
-You have probably installed Node with sudo or root permission. You will need to fix permissions to the .npm folder with the following command:
 
-```
-sudo chown -R $(whoami) ~/.npm
-sudo chown -R $(whoami) /usr/local/lib/node_modules
-```
+The spacing is not important for the table to be rendered properly, and the cells do not have to line up. However it does help with readability when creating and editing tables.
 
-After that, try running the Start.app again.
+### HTML Tags in Text
 
-4 - If you have XCode installed but have not agreed with the License you will get this error:
-```
-Agreeing to the Xcode/iOS license requires admin privileges, please re-run as root via sudo.
-```
-Open XCode and accept the license, then try running Start.app again.
-
-5 - If you get a **404 - No data received** error, you might have a port conflict, there are two ways you can change the port number (default to **9241**):
-- Change the PORT variable inside styleguide/structure/_node-files/watch.js
-- Set an environment variable (PORT or STYLEGUIDE_PORT):
-
-    If you are running the Styleguide manually, in the last step you might do:
-
-    ```
-    PORT=7000 node watch.js
-    ```
-    or
-    ```
-    STYLEGUIDE_PORT=7000 node watch.js
-    ```
-    The Start.app is self contained, and for security reasons it does not have access to external variables.
-    If you want to change the port for the Start.app it is recommended to change the watch.js file.
-    You can, if you want, add a variable to your .bashrc file and it will be available for the Start.app:
-    ```
-    touch ~/.bashrc
-    echo 'export PORT=1234' >> ~/.bashrc
-    ```
-    or
-    ```
-    echo 'export STYLEGUIDE_PORT=1234' >> ~/.bashrc
-    ```
+When displaying HTML tags as text in content, be sure to wrap them in backticks, eg: \``<h3>`\`.
